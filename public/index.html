@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generatore Preventivi Intelligente</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Generatore Preventivi Intelligente</h1>
+            <p>Crea preventivi professionali in pochi secondi con l'intelligenza artificiale</p>
+        </header>
+
+        <main>
+            <form id="quoteForm" class="quote-form">
+                <div class="form-section">
+                    <h2>Informazioni Cliente</h2>
+                    
+                    <div class="form-group">
+                        <label for="clientName">Nome Cliente</label>
+                        <input type="text" id="clientName" name="clientName" placeholder="Mario Rossi">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="clientEmail">Email Cliente</label>
+                        <input type="email" id="clientEmail" name="clientEmail" placeholder="cliente@esempio.it">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="companyName">Nome Azienda</label>
+                        <input type="text" id="companyName" name="companyName" placeholder="Azienda SRL">
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h2>Dettagli Servizio</h2>
+                    
+                    <div class="form-group">
+                        <label for="serviceType">Tipo di Servizio *</label>
+                        <select id="serviceType" name="serviceType" required>
+                            <option value="">Seleziona un servizio</option>
+                            <option value="Sviluppo Web">Sviluppo Web</option>
+                            <option value="App Mobile">App Mobile</option>
+                            <option value="Consulenza IT">Consulenza IT</option>
+                            <option value="Design UI/UX">Design UI/UX</option>
+                            <option value="Marketing Digitale">Marketing Digitale</option>
+                            <option value="SEO">SEO</option>
+                            <option value="E-commerce">E-commerce</option>
+                            <option value="Manutenzione">Manutenzione</option>
+                            <option value="Altro">Altro</option>
+                        </select>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="estimatedHours">Ore Stimate *</label>
+                            <input type="number" id="estimatedHours" name="estimatedHours" min="1" required placeholder="40">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="hourlyRate">Tariffa Oraria (€)</label>
+                            <input type="number" id="hourlyRate" name="hourlyRate" min="1" value="50" placeholder="50">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="projectSpecs">Specifiche del Progetto *</label>
+                        <textarea id="projectSpecs" name="projectSpecs" rows="6" required 
+                                  placeholder="Descrivi il progetto, le funzionalità richieste, le tecnologie da utilizzare, tempistiche desiderate, etc."></textarea>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">
+                        <span id="generateBtn">Genera Preventivo</span>
+                        <span id="loadingSpinner" class="spinner hidden"></span>
+                    </button>
+                </div>
+            </form>
+
+            <div id="quoteResult" class="quote-result hidden">
+                <h2>Preventivo Generato</h2>
+                
+                <div class="quote-header">
+                    <div class="quote-info">
+                        <p><strong>Numero:</strong> <span id="quoteNumber"></span></p>
+                        <p><strong>Data:</strong> <span id="quoteDate"></span></p>
+                        <p><strong>Valido fino al:</strong> <span id="quoteValidity"></span></p>
+                    </div>
+                    <div class="quote-total">
+                        <p class="total-label">Totale</p>
+                        <p class="total-amount">€<span id="totalAmount"></span></p>
+                    </div>
+                </div>
+
+                <div class="quote-content">
+                    <div id="quoteDetails"></div>
+                </div>
+
+                <div class="quote-actions">
+                    <button id="downloadPdfBtn" class="btn btn-secondary">
+                        Scarica PDF
+                    </button>
+                    <button id="newQuoteBtn" class="btn btn-outline">
+                        Nuovo Preventivo
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Generatore Preventivi Intelligente - Powered by Claude AI</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
