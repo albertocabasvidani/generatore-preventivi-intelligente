@@ -1,11 +1,11 @@
 # Generatore Preventivi Intelligente
 
-Un'applicazione web per generare preventivi professionali utilizzando l'intelligenza artificiale di GPT-4 (OpenAI).
+Un'applicazione web per generare preventivi professionali utilizzando l'intelligenza artificiale di **GPT-5-nano** (OpenAI).
 
 ## Funzionalità
 
 - Generazione automatica di preventivi professionali
-- Integrazione con GPT-4 di OpenAI per contenuti intelligenti
+- Integrazione con **GPT-5-nano** di OpenAI per contenuti intelligenti e veloci
 - Esportazione in PDF
 - Interfaccia responsive e moderna
 - Calcolo automatico dei costi
@@ -46,10 +46,17 @@ npm run dev
 ## Tecnologie Utilizzate
 
 - **Backend**: Node.js, Express
-- **AI**: GPT-4 API (OpenAI)
+- **AI**: GPT-5-nano API (OpenAI)
 - **PDF**: PDFKit
 - **Frontend**: HTML5, CSS3, JavaScript vanilla
 - **Stile**: CSS moderno con variabili custom
+
+## Vantaggi di GPT-5-nano
+
+- **Costo ridotto**: $1.25 per 1M token input (vs $10 di GPT-4-turbo)
+- **Velocità superiore**: Ottimizzato per risposte rapide
+- **Cache efficiency**: 90% di sconto per contenuti ripetuti
+- **Context window**: 400K token per progetti complessi
 
 ## API Endpoints
 

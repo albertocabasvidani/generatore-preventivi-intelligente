@@ -18,35 +18,37 @@ async function generateQuote(data) {
 
   const totalCost = estimatedHours * hourlyRate;
 
-  const prompt = `Genera un preventivo professionale in italiano per il seguente progetto:
+  const prompt = `GENERA PREVENTIVO PROFESSIONALE
 
-Tipo di servizio: ${serviceType}
-Ore stimate: ${estimatedHours}
-Tariffa oraria: €${hourlyRate}
-Costo totale: €${totalCost}
-Specifiche del progetto: ${projectSpecs}
-Cliente: ${clientName || 'Da definire'}
-Azienda cliente: ${companyName || 'Da definire'}
+## DATI PROGETTO
+- Servizio: ${serviceType}
+- Ore stimate: ${estimatedHours}h
+- Tariffa: €${hourlyRate}/h
+- TOTALE: €${totalCost}
+- Cliente: ${clientName || 'Da definire'}
+- Azienda: ${companyName || 'Da definire'}
 
-Il preventivo deve includere:
-1. Una descrizione dettagliata del servizio
-2. Suddivisione delle fasi del progetto con ore stimate per fase
-3. Deliverables attesi
-4. Timeline stimata
-5. Termini e condizioni standard
-6. Modalità di pagamento
+## SPECIFICHE
+${projectSpecs}
 
-Formatta il preventivo in modo professionale e chiaro. Usa un tono professionale ma amichevole.`;
+## STRUTTURA RICHIESTA
+1. **Descrizione Servizio** - panoramica chiara del lavoro
+2. **Fasi del Progetto** - suddivisione con ore per fase
+3. **Deliverables** - cosa verrà consegnato
+4. **Timeline** - tempistiche di realizzazione  
+5. **Termini e Condizioni** - modalità di lavoro e pagamento
+
+Genera un preventivo professionale, strutturato e completo in italiano.`;
 
   try {
     const response = await openai.chat.completions.create({
-      model: 'gpt-4-turbo-preview',
+      model: 'gpt-5-nano',
       max_tokens: 2000,
       temperature: 0.7,
       messages: [
         {
           role: 'system',
-          content: 'Sei un esperto nella creazione di preventivi professionali per servizi IT e digitali. Genera preventivi dettagliati, chiari e professionali in italiano.'
+          content: 'Sei un esperto nella creazione di preventivi professionali per servizi IT e digitali. Genera preventivi strutturati, dettagliati e professionali in italiano. Usa sezioni chiare e formattazione consistente.'
         },
         {
           role: 'user',
@@ -75,7 +77,7 @@ Formatta il preventivo in modo professionale e chiaro. Usa un tono professionale
     return quoteData;
   } catch (error) {
     console.error('Errore API OpenAI:', error);
-    throw new Error('Impossibile generare il preventivo con GPT-4');
+    throw new Error('Impossibile generare il preventivo con GPT-5-nano');
   }
 }
 
