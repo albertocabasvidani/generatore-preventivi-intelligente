@@ -1,11 +1,11 @@
 # Generatore Preventivi Intelligente
 
-Un'applicazione web per generare preventivi professionali utilizzando l'intelligenza artificiale di Claude.
+Un'applicazione web per generare preventivi professionali utilizzando l'intelligenza artificiale di GPT-4 (OpenAI).
 
 ## Funzionalità
 
 - Generazione automatica di preventivi professionali
-- Integrazione con Claude AI per contenuti intelligenti
+- Integrazione con GPT-4 di OpenAI per contenuti intelligenti
 - Esportazione in PDF
 - Interfaccia responsive e moderna
 - Calcolo automatico dei costi
@@ -25,7 +25,7 @@ npm install
 
 3. Configura le variabili d'ambiente:
    - Copia `.env.example` in `.env`
-   - Aggiungi la tua API key di Anthropic
+   - Aggiungi la tua API key di OpenAI
 
 4. Avvia il server:
 ```bash
@@ -46,7 +46,7 @@ npm run dev
 ## Tecnologie Utilizzate
 
 - **Backend**: Node.js, Express
-- **AI**: Claude API (Anthropic)
+- **AI**: GPT-4 API (OpenAI)
 - **PDF**: PDFKit
 - **Frontend**: HTML5, CSS3, JavaScript vanilla
 - **Stile**: CSS moderno con variabili custom

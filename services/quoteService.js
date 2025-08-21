@@ -1,8 +1,8 @@
-const Anthropic = require('@anthropic-ai/sdk');
+const OpenAI = require('openai');
 const PDFDocument = require('pdfkit');
 
-const anthropic = new Anthropic({
-  apiKey: process.env.ANTHROPIC_API_KEY,
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY,
 });
 
 async function generateQuote(data) {
@@ -39,11 +39,15 @@ Il preventivo deve includere:
 Formatta il preventivo in modo professionale e chiaro. Usa un tono professionale ma amichevole.`;
 
   try {
-    const response = await anthropic.messages.create({
-      model: 'claude-3-haiku-20240307',
+    const response = await openai.chat.completions.create({
+      model: 'gpt-4-turbo-preview',
       max_tokens: 2000,
       temperature: 0.7,
       messages: [
+        {
+          role: 'system',
+          content: 'Sei un esperto nella creazione di preventivi professionali per servizi IT e digitali. Genera preventivi dettagliati, chiari e professionali in italiano.'
+        },
         {
           role: 'user',
           content: prompt
@@ -51,7 +55,7 @@ Formatta il preventivo in modo professionale e chiaro. Usa un tono professionale
       ]
     });
 
-    const quoteText = response.content[0].text;
+    const quoteText = response.choices[0].message.content;
 
     const quoteData = {
       quoteNumber: `PRV-${Date.now()}`,
@@ -70,8 +74,8 @@ Formatta il preventivo in modo professionale e chiaro. Usa un tono professionale
 
     return quoteData;
   } catch (error) {
-    console.error('Errore API Claude:', error);
-    throw new Error('Impossibile generare il preventivo con Claude');
+    console.error('Errore API OpenAI:', error);
+    throw new Error('Impossibile generare il preventivo con GPT-4');
   }
 }
 

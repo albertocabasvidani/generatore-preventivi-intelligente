@@ -12,11 +12,11 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "anthropic": "^0.0.0",
     "body-parser": "^2.2.0",
     "cors": "^2.8.5",
     "dotenv": "^17.2.1",
     "express": "^5.1.0",
+    "openai": "^5.13.1",
     "pdfkit": "^0.17.1"
   },
   "devDependencies": {
